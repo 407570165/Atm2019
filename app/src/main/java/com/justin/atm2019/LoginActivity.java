@@ -1,5 +1,6 @@
 package com.justin.atm2019;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,9 +19,15 @@ public class LoginActivity extends AppCompatActivity {
         EditText editPassword =findViewById(R.id.password);
         String username =editUsername.getText().toString();
         String password =editPassword.getText().toString();
-        if ("Justin"==username&&"1234"==password){
+        if ("Justin".equals(username)&&"1234".equals(password)){
             setResult(RESULT_OK);
             finish();
-        }
+        }else
+            new AlertDialog.Builder(this)
+                    .setTitle("failed")
+                    .setMessage("wrong")
+                    .setPositiveButton("ok",null)
+                    .show();
+
     }
 }

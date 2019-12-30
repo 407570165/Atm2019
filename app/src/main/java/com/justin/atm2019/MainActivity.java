@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+   protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {//這裡是甚麼意思
         if (requestCode==10){
             if (resultCode!=RESULT_OK){
                 finish();
