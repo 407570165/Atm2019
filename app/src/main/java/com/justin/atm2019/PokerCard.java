@@ -38,6 +38,12 @@ public class PokerCard extends ConstraintLayout {
                 break;
             case 2:
                 typeImage.setImageResource(R.drawable.hearts);
+                break;
+            case 3:
+                typeImage.setImageResource(R.drawable.spare);
+                break;
         }
+        pattern.setText(point+"");
+        pattern1.setText(point+"");
     }
 }
