@@ -2,8 +2,6 @@ package com.justin.atm2019;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,39 +9,41 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class PokerCard extends ConstraintLayout {
 
-    private final ImageView typeImage;
-    private final TextView pattern;
-    private final TextView pattern1;
+
+    private final TextView leftNum;
+    private final TextView rightNum;
+    private final ImageView cards;
     int value;
     public PokerCard(Context context, AttributeSet attrs) {
         super(context, attrs);
-        inflate(context,R.layout.cards,this);//這裡是在幹嘛啊
-         typeImage = findViewById(R.id.typeImage);
-        pattern = findViewById(R.id.Left_View);
-        pattern1 = findViewById(R.id.Right_View);
+        inflate(context,R.layout.cards,this);
+        leftNum = findViewById(R.id.text1);
+        rightNum = findViewById(R.id.downText);
+        cards = findViewById(R.id.imageView);
     }
     public int getValue(){
         return value;
     }
     public void setValue(int value){
         this.value=value;
-        int type =value%4;
-        int point=(value%13)+1;
+        int type =value/13;
+        int points =(value%13)+1;
         switch (type){
             case 0:
-                typeImage.setImageResource(R.drawable.clover);
+                cards.setImageResource(R.drawable.clover);
                 break;
-            case  1:
-                typeImage.setImageResource(R.drawable.diamond);
+            case 1:
+                cards.setImageResource(R.drawable.diamond);
                 break;
             case 2:
-                typeImage.setImageResource(R.drawable.hearts);
+                cards.setImageResource(R.drawable.hearts);
                 break;
-            case 3:
-                typeImage.setImageResource(R.drawable.spare);
+            case  3:
+                cards.setImageResource(R.drawable.spare);
                 break;
         }
-        pattern.setText(point+"");
-        pattern1.setText(point+"");
+        leftNum.setText(points+"");
+        rightNum.setText(points+"");
     }
 }
+

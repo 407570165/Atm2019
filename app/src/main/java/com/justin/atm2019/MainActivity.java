@@ -1,5 +1,6 @@
 package com.justin.atm2019;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -26,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        card = findViewById(R.id.cards);
         FloatingActionButton fab = findViewById(R.id.fab);
+        card = findViewById(R.id.cards);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,17 +37,16 @@ public class MainActivity extends AppCompatActivity {
         });
         if (!logon){
             Intent intent =new Intent(this,LoginActivity.class);
-            //startActivity(intent);
             startActivityForResult(intent,10);
         }
     }
+
     @Override
-   protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {//這裡是甚麼意思
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode==10){
             if (resultCode!=RESULT_OK){
                 finish();
-            }else
-                logon=true;
+            }
         }
     }
 

@@ -9,25 +9,26 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private EditText username;
+    private EditText password;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        username = findViewById(R.id.editName);
+        password = findViewById(R.id.editPassword);
     }
     public void login(View view){
-        EditText editUsername =findViewById(R.id.username);
-        EditText editPassword =findViewById(R.id.password);
-        String username =editUsername.getText().toString();
-        String password =editPassword.getText().toString();
-        if ("Justin".equals(username)&&"1234".equals(password)){
+        if ("justin".equals(username.getText().toString())&&"1234".equals(password.getText().toString())){
             setResult(RESULT_OK);
             finish();
-        }else
+        }else {
             new AlertDialog.Builder(this)
-                    .setTitle("failed")
-                    .setMessage("wrong")
-                    .setPositiveButton("ok",null)
+                    .setMessage("failed")
                     .show();
-
+        }
     }
 }
+
